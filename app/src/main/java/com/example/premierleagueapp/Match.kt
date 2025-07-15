@@ -6,6 +6,7 @@ import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 
 data class Match(
+    val id: Int,
     val MatchNumber: Int,
     val RoundNumber: Int,
     val DateUtc: String,
