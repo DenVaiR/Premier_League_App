@@ -1,7 +1,9 @@
-package com.example.premierleagueapp
+package com.example.premierleagueapp.ui.screens.details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.premierleagueapp.data.model.Match
+import com.example.premierleagueapp.data.repository.MatchRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

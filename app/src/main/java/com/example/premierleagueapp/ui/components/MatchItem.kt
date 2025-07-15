@@ -1,4 +1,4 @@
-package com.example.premierleagueapp
+package com.example.premierleagueapp.ui.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.example.premierleagueapp.data.model.Match
 
 @Composable
 fun MatchItem(
@@ -45,26 +46,26 @@ fun MatchItem(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = match.HomeTeam,
+                    text = match.homeTeam,
                     style = MaterialTheme.typography.bodyLarge,
                     fontWeight = FontWeight.Bold
                 )
 
                 Text(
-                    text = "${match.HomeTeamScore ?: "-"} : ${match.AwayTeamScore ?: "-"}",
+                    text = "${match.homeTeamScore ?: "-"} : ${match.awayTeamScore ?: "-"}",
                     style = MaterialTheme.typography.bodyLarge,
                     fontWeight = FontWeight.Bold
                 )
 
                 Text(
-                    text = match.AwayTeam,
+                    text = match.awayTeam,
                     style = MaterialTheme.typography.bodyLarge,
                     fontWeight = FontWeight.Bold
                 )
             }
 
             Text(
-                text = match.Location,
+                text = match.location,
                 style = MaterialTheme.typography.bodySmall,
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center

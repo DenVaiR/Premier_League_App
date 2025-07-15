@@ -1,4 +1,4 @@
-package com.example.premierleagueapp
+package com.example.premierleagueapp.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.core.view.WindowCompat
 import androidx.navigation.compose.rememberNavController
+import com.example.premierleagueapp.ui.navigation.NavGraph
+import com.example.premierleagueapp.ui.theme.EPLMatchesTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

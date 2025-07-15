@@ -1,4 +1,4 @@
-package com.example.premierleagueapp
+package com.example.premierleagueapp.ui.screens.details
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,7 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Card
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -51,7 +51,7 @@ fun MatchDetailsScreen(
                 title = { Text("Match Details") },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
                 }
             )
@@ -93,7 +93,7 @@ fun MatchDetailsScreen(
                             Spacer(modifier = Modifier.height(8.dp))
 
                             Text(
-                                text = "Round ${match!!.RoundNumber}",
+                                text = "Round ${match!!.roundNumber}",
                                 style = MaterialTheme.typography.bodyLarge
                             )
 
@@ -113,12 +113,12 @@ fun MatchDetailsScreen(
                             ) {
                                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                     Text(
-                                        text = match!!.HomeTeam,
+                                        text = match!!.homeTeam,
                                         style = MaterialTheme.typography.titleLarge,
                                         fontWeight = FontWeight.Bold
                                     )
                                     Text(
-                                        text = match!!.HomeTeamScore?.toString() ?: "-",
+                                        text = match!!.homeTeamScore?.toString() ?: "-",
                                         style = MaterialTheme.typography.displayMedium
                                     )
                                 }
@@ -131,12 +131,12 @@ fun MatchDetailsScreen(
 
                                 Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                     Text(
-                                        text = match!!.AwayTeam,
+                                        text = match!!.awayTeam,
                                         style = MaterialTheme.typography.titleLarge,
                                         fontWeight = FontWeight.Bold
                                     )
                                     Text(
-                                        text = match!!.AwayTeamScore?.toString() ?: "-",
+                                        text = match!!.awayTeamScore?.toString() ?: "-",
                                         style = MaterialTheme.typography.displayMedium
                                     )
                                 }
@@ -145,7 +145,7 @@ fun MatchDetailsScreen(
                             Spacer(modifier = Modifier.height(24.dp))
 
                             Text(
-                                text = "Location: ${match!!.Location}",
+                                text = "Location: ${match!!.location}",
                                 style = MaterialTheme.typography.bodyLarge,
                                 textAlign = TextAlign.Center
                             )

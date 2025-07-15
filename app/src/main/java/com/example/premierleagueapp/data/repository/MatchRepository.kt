@@ -1,5 +1,7 @@
-package com.example.premierleagueapp
+package com.example.premierleagueapp.data.repository
 
+import com.example.premierleagueapp.data.api.MatchApi
+import com.example.premierleagueapp.data.model.Match
 import javax.inject.Inject
 
 class MatchRepository @Inject constructor(
@@ -10,7 +12,7 @@ class MatchRepository @Inject constructor(
     suspend fun getMatches(): List<Match> {
         if (cachedMatches == null) {
             cachedMatches = matchApi.getMatches()
-                .mapIndexed { index, match -> match.copy(id = index) } // Добавляем ID
+                .mapIndexed { index, match -> match.copy(id = index) }
         }
         return cachedMatches!!
     }

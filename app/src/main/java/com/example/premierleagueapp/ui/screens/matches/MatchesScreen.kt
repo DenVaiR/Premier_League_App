@@ -1,4 +1,4 @@
-package com.example.premierleagueapp
+package com.example.premierleagueapp.ui.screens.matches
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
@@ -28,6 +28,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.paging.LoadState
+import com.example.premierleagueapp.ui.components.MatchItem
+import com.example.premierleagueapp.ui.components.SearchBar
 
 @Composable
 fun MatchesScreen(

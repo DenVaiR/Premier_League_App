@@ -1,7 +1,8 @@
-package com.example.premierleagueapp
+package com.example.premierleagueapp.data.repository
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.example.premierleagueapp.data.model.Match
 
 class MatchesPagingSource(
     private val repository: MatchRepository,
@@ -12,8 +13,8 @@ class MatchesPagingSource(
             val matches = repository.getMatches()
             val filteredMatches = if (query.isNotEmpty()) {
                 matches.filter {
-                    it.HomeTeam.contains(query, ignoreCase = true) ||
-                            it.AwayTeam.contains(query, ignoreCase = true)
+                    it.homeTeam.contains(query, ignoreCase = true) ||
+                            it.awayTeam.contains(query, ignoreCase = true)
                 }
             } else {
                 matches
