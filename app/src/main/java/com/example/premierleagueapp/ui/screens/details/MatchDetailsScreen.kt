@@ -100,7 +100,7 @@ fun MatchDetailsScreen(
                             Spacer(modifier = Modifier.height(16.dp))
 
                             Text(
-                                text = match!!.getFormattedDate(),
+                                text = match!!.getLocalTime(),
                                 style = MaterialTheme.typography.bodyLarge
                             )
 

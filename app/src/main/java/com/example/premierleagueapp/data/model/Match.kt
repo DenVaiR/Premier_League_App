@@ -5,6 +5,7 @@ import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 data class Match(
     val id: Int,
@@ -37,6 +38,19 @@ data class Match(
             "${localDateTime.format(dateFormatter)} at ${localDateTime.format(timeFormatter)}"
         } catch (e: Exception) {
             dateUtc
+        }
+    }
+    fun getLocalTime(): String {
+        return try {
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss'Z'")
+            val utcDateTime = LocalDateTime.parse(dateUtc, formatter)
+            val zonedUtc = ZonedDateTime.of(utcDateTime, ZoneId.of("UTC"))
+            val localTime = zonedUtc.withZoneSameInstant(ZoneId.systemDefault())
+            DateTimeFormatter
+                .ofLocalizedTime(FormatStyle.SHORT)
+                .format(localTime)
+        } catch (e: Exception) {
+            "Time error"
         }
     }
 }
