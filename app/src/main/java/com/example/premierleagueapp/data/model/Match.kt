@@ -1,5 +1,6 @@
 package com.example.premierleagueapp.data.model
 
+import com.google.gson.annotations.SerializedName
 import java.time.LocalDateTime
 import java.time.ZoneId
 import java.time.ZonedDateTime
@@ -7,13 +8,21 @@ import java.time.format.DateTimeFormatter
 
 data class Match(
     val id: Int,
+    @SerializedName("MatchNumber")
     val matchNumber: Int,
+    @SerializedName("RoundNumber")
     val roundNumber: Int,
+    @SerializedName("DateUtc")
     val dateUtc: String,
+    @SerializedName("Location")
     val location: String,
+    @SerializedName("HomeTeam")
     val homeTeam: String,
+    @SerializedName("AwayTeam")
     val awayTeam: String,
+    @SerializedName("HomeTeamScore")
     val homeTeamScore: Int?,
+    @SerializedName("AwayTeamScore")
     val awayTeamScore: Int?
 ) {
     fun getFormattedDate(): String {
