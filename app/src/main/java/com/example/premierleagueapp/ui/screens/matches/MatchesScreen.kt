@@ -40,6 +40,7 @@ fun MatchesScreen(
     val matches = viewModel.matches.collectAsLazyPagingItems()
     val scrollState = rememberLazyListState()
     var showSearchBar by remember { mutableStateOf(true) }
+    val isLoading = matches.loadState.refresh is LoadState.Loading
 
     LaunchedEffect(scrollState) {
         snapshotFlow { scrollState.firstVisibleItemScrollOffset }
@@ -50,17 +51,19 @@ fun MatchesScreen(
 
     Scaffold(
         topBar = {
-            AnimatedVisibility(
-                visible = showSearchBar,
-                enter = fadeIn(),
-                exit = fadeOut()
-            ) {
-                Column(modifier = Modifier.padding(top = 24.dp)) {
-                    SearchBar(
-                        query = searchQuery,
-                        onQueryChange = viewModel::onSearch,
-                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
-                    )
+            if (!isLoading) {
+                AnimatedVisibility(
+                    visible = showSearchBar,
+                    enter = fadeIn(),
+                    exit = fadeOut()
+                ) {
+                    Column(modifier = Modifier.padding(top = 24.dp)) {
+                        SearchBar(
+                            query = searchQuery,
+                            onQueryChange = viewModel::onSearch,
+                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                        )
+                    }
                 }
             }
         }
